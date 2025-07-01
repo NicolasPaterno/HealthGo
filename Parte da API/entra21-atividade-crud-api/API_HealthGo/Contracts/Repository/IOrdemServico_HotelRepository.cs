@@ -1,6 +1,18 @@
-﻿namespace API_HealthGo.Contracts.Repository
+﻿using API_HealthGo.DTO;
+using API_HealthGo.Entity;
+
+namespace API_HealthGo.Contracts.Repository
 {
     public interface IOrdemServico_HotelRepository
     {
+        Task<IEnumerable<OrdemServico_HotelEntity>> GetAll();
+
+        Task<OrdemServico_HotelEntity> GetById(int id);
+
+        Task Insert(OrdemServico_HotelInsertDTO osHotel);
+
+        Task Delete(int id);
+
+        Task Update(OrdemServico_HotelEntity osHotel);
     }
 }
