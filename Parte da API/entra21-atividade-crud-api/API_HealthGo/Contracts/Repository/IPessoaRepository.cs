@@ -5,15 +5,15 @@ namespace API_HealthGo.Contracts.Repository
 {
     public interface IPessoaRepository
     {
-        Task<IEnumerable<PessoaEntity>> GetAllPessoa();
+        Task<IEnumerable<PessoaEntity>> GetAll();
 
-        Task<PessoaEntity> GetPessoaById(int id);
+        Task<PessoaEntity> GetById(int id);
 
-        Task InsertPessoa(PessoaInsertDTO pessoa);
+        Task Insert(PessoaInsertDTO pessoa);
 
-        Task UpdatePessoa(PessoaEntity pessoa);
+        Task Update(PessoaEntity pessoa);
 
-        Task DeletePessoa(int id);
+        Task Delete(int id);
 
         Task<PessoaEntity> GetPessoaByEmail(string email);
     }

@@ -16,7 +16,7 @@ namespace API_HealthGo.Repository
             _connection = connection;
         }
 
-        public async Task<IEnumerable<LembreteEntity>> GetAllLembrete()
+        public async Task<IEnumerable<LembreteEntity>> GetAll()
         {
             using (MySqlConnection con = _connection.GetConnection())
             {
@@ -30,7 +30,7 @@ namespace API_HealthGo.Repository
             }
         }
 
-        public async Task<LembreteEntity> GetLembreteById(int id)
+        public async Task<LembreteEntity> GetById(int id)
         {
             using (MySqlConnection con = _connection.GetConnection())
             {
@@ -43,7 +43,7 @@ namespace API_HealthGo.Repository
             }
         }
 
-        public async Task InsertLembrete(LembreteInsertDTO lembrete)
+        public async Task Insert(LembreteInsertDTO lembrete)
         {
             string sql = @"
                 INSERT INTO LEMBRETE ( DESCRICAO, DATAINICIO, PESSOA_ID)
@@ -53,7 +53,7 @@ namespace API_HealthGo.Repository
             await _connection.Execute(sql, lembrete);
         }
 
-        public async Task UpdateLembrete(LembreteEntity lembrete)
+        public async Task Update(LembreteEntity lembrete)
         {
             string sql = @"
                 UPDATE LEMBRETE SET 
@@ -66,7 +66,7 @@ namespace API_HealthGo.Repository
             await _connection.Execute(sql, lembrete);
         }
 
-        public async Task DeleteLembrete(int id)
+        public async Task Delete(int id)
         {
             string sql = "DELETE FROM LEMBRETE WHERE ID = @id";
             await _connection.Execute(sql, new { id });

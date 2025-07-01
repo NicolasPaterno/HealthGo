@@ -16,7 +16,7 @@ namespace API_HealthGo.Repository
             _connection = connection;
         }
 
-        public async Task<IEnumerable<PessoaEntity>> GetAllPessoa()
+        public async Task<IEnumerable<PessoaEntity>> GetAll()
         {
             using (MySqlConnection con = _connection.GetConnection())
             {
@@ -27,7 +27,7 @@ namespace API_HealthGo.Repository
             }
         }
 
-        public async Task<PessoaEntity> GetPessoaById(int id)
+        public async Task<PessoaEntity> GetById(int id)
         {
             using (MySqlConnection con = _connection.GetConnection())
             {
@@ -40,7 +40,7 @@ namespace API_HealthGo.Repository
             }
         }
 
-        public async Task InsertPessoa(PessoaInsertDTO pessoa)
+        public async Task Insert(PessoaInsertDTO pessoa)
         {
             string sql = @$"
                         INSERT INTO PESSOA (NOME, DATANASCIMENTO, CPF, TELEFONE, EMAIL,
@@ -52,7 +52,7 @@ namespace API_HealthGo.Repository
             await _connection.Execute(sql, pessoa);
         }
 
-        public async Task UpdatePessoa(PessoaEntity pessoa)
+        public async Task Update(PessoaEntity pessoa)
         {
             string sql = @$"
                 UPDATE PESSOA SET 
@@ -75,7 +75,7 @@ namespace API_HealthGo.Repository
             await _connection.Execute(sql, pessoa);
         }
 
-        public async Task DeletePessoa(int id)
+        public async Task Delete(int id)
         {
             string sql = "DELETE FROM PESSOA WHERE ID = @id";
             await _connection.Execute(sql, new { id });

@@ -6,9 +6,9 @@ namespace API_HealthGo.Contracts.Service
 {
     public interface IPessoaService
     {
-        Task<PessoaGetAllResponse> GetAllPessoa();
+        Task<PessoaGetAllResponse> GetAll();
 
-        Task<PessoaEntity> GetPessoaById(int id);
+        Task<PessoaEntity> GetById(int id);
 
         Task<MessageResponse> Post(PessoaInsertDTO pessoa);
 

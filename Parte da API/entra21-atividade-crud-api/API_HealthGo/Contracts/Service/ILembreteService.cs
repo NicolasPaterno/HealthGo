@@ -6,9 +6,9 @@ namespace API_HealthGo.Contracts.Service
 {
     public interface ILembreteService
     {
-        Task<LembreteGetAllResponse> GetAllLembrete();
+        Task<LembreteGetAllResponse> GetAll();
 
-        Task<LembreteEntity> GetLembreteById(int id);
+        Task<LembreteEntity> GetById(int id);
 
         Task<MessageResponse> Post(LembreteInsertDTO lembrete);
 

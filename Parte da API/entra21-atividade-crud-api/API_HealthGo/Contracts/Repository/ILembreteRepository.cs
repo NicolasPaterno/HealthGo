@@ -5,14 +5,14 @@ namespace API_HealthGo.Contracts.Repository
 {
     public interface ILembreteRepository
     {
-        Task<IEnumerable<LembreteEntity>> GetAllLembrete();
+        Task<IEnumerable<LembreteEntity>> GetAll();
 
-        Task<LembreteEntity> GetLembreteById(int id);
+        Task<LembreteEntity> GetById(int id);
 
-        Task InsertLembrete(LembreteInsertDTO lembrete);
+        Task Insert(LembreteInsertDTO lembrete);
 
-        Task UpdateLembrete(LembreteEntity lembrete);
+        Task Update(LembreteEntity lembrete);
 
-        Task DeleteLembrete(int id);
+        Task Delete(int id);
     }
 }
